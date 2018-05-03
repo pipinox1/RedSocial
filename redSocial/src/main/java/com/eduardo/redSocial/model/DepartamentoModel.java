@@ -1,24 +1,21 @@
-package com.eduardo.redSocial.entity;
+package com.eduardo.redSocial.model;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
 
-@Entity
-@Table(name="Departamento")
-public class Departamento {
+public class DepartamentoModel {
+
+
 	
-	@Column(name = "iddepartamento")
 	private String idDepartamento;
 	
-	@Column(name = "nombredepartamento")
+	
 	private String nombreDepartamento;
 	
-	public Departamento() {}
+	public DepartamentoModel() {}
 	
 	
 
-	public Departamento(String idDepartamento, String nombreDepartamento) {
+	public DepartamentoModel(String idDepartamento, String nombreDepartamento) {
 		super();
 		this.idDepartamento = idDepartamento;
 		this.nombreDepartamento = nombreDepartamento;
@@ -45,6 +42,5 @@ public class Departamento {
 	
 	
 
-	
 	
 }

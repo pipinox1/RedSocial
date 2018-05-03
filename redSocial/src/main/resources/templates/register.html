@@ -8,6 +8,10 @@
 <title>NUEVO DONANTE</title>
 </head>
 <body>
+
+ <div class="col-md-3">
+ </div>
+ <div class="col-md-6">
 	<form class="form-horizontal" action="#" th:action="@{/registrar/addDonante}"  method="post">
 		<div class="form-group">
 			<label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
@@ -39,6 +43,29 @@
 			/>
 		</select>
 		
+		<select class="form-control" name="idGrupoSanguineo" >
+			<option value="">--</option>
+			<option th:each="grupoSanguineoModel : ${gruposSanguineo}"
+			
+			th:value="${grupoSanguineoModel.idgruposanguineo}"
+			
+			th:selected="(${grupoSanguineoModel.idgruposanguineo} == ${donante.grupodonante})"
+						
+			th:text="${grupoSanguineoModel.nombregruposanguineo}"
+			/>
+		</select>
+		<select class="form-control" name="idDepartamento" >
+			<option value="">--</option>
+			<option th:each="departamentoModel departamento : ${gruposSanguineo}"
+			
+			th:value="${grupoSanguineoModel.idgruposanguineo}"
+			
+			th:selected="(${grupoSanguineoModel.idgruposanguineo} == ${donante.grupodonante})"
+						
+			th:text="${grupoSanguineoModel.nombregruposanguineo}"
+			/>
+		</select>
+		
 		
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
@@ -49,8 +76,11 @@
 
 
 	</form>
+	</div>
 
 
+ <div class="col-md-3">
+ </div>
 
 
 	<script src="/bootstrap-3.3.7/js/bootstrap.min.js"

@@ -36,8 +36,7 @@ public class RegisterController {
 		
 		modelo.addAttribute("donante", new DonanteModel());				
 		modelo.addAttribute("gruposSanguineo", gruposanguineoService.getAllGrup());
-		
-			
+		modelo.addAttribute("listaDepartamentos",new)
 		return Constantes.VIEW_REGISTER;
 	}
 	

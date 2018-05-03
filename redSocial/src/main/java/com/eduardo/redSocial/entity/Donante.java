@@ -26,6 +26,9 @@ public class Donante {
 	//@Column(name="iddonante", unique = true, nullable = false)
 	//private int iddonante;
 	
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="iddepartamento")
+	private Departamento departamentodonante;
 	
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="idgrupo")
