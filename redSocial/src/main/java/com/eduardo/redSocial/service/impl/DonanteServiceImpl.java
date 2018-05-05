@@ -7,12 +7,14 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.eduardo.redSocial.component.DepartamentoConverte;
 import com.eduardo.redSocial.component.DonanteConverter;
 import com.eduardo.redSocial.component.GrupoSanguineoConverter;
 import com.eduardo.redSocial.entity.Donante;
 import com.eduardo.redSocial.model.DonanteModel;
 import com.eduardo.redSocial.repository.DonanteRepository;
 import com.eduardo.redSocial.repository.GrupoSanguineoRepository;
+import com.eduardo.redSocial.service.DepartamentoService;
 import com.eduardo.redSocial.service.DonanteService;
 import com.eduardo.redSocial.service.GrupoSanguineoService;
 
@@ -36,10 +38,18 @@ public class DonanteServiceImpl implements DonanteService{
 	
 	@Autowired
 	@Qualifier("converterGrupoSanguineo")
-	private GrupoSanguineoConverter gruposanguineoConverter;
+	private GrupoSanguineoConverter gruposanguineoConverter;;
 
-	@Override
-	public Donante addDonante(DonanteModel donantemodel,int idGrupoSanguineo) {
+	@Autowired
+	@Qualifier("departamentoServiceImpl")
+	private DepartamentoService departamentoService;
+	
+	@Autowired
+	@Qualifier("converterDepartamento")
+	private DepartamentoConverte departamentoConverter;
+	
+	
+	public Donante addDonante(DonanteModel donantemodel) {
 		
 		
 		
@@ -51,7 +61,28 @@ public class DonanteServiceImpl implements DonanteService{
 		donantemodel.setPassdonante(passwordcrip);
 		
 		
-		donantemodel.setGrupodonante(gruposanguineoConverter.converteToGrupoSanguineo(gruposanguineoService.searchByID(idGrupoSanguineo)));
+		LOGGER.info("METHOD: addCourse()");		
+		
+		
+		return donanteRepository.save(donanteConverter.converteToDonante(donantemodel));		
+	}
+
+	@Override
+	public Donante addDonante(DonanteModel donantemodel,int idGrupoSanguineo,int idDepartamento) {
+		
+		
+		
+		BCryptPasswordEncoder pe = new BCryptPasswordEncoder();
+		
+		
+		String passwordcrip = pe.encode(donantemodel.getPassdonante());
+		
+		donantemodel.setPassdonante(passwordcrip);
+		
+		
+		donantemodel.setGrupodonante(gruposanguineoService.searchByID(idGrupoSanguineo));
+		
+		donantemodel.setDepartamentodonante(departamentoService.searchByID(idDepartamento));
 		
 		LOGGER.info("METHOD: addCourse()");		
 		

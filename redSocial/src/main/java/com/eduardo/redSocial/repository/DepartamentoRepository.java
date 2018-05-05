@@ -10,6 +10,8 @@ import com.eduardo.redSocial.entity.Departamento;
 @Repository("departamentoRepository")
 public interface DepartamentoRepository extends JpaRepository<Departamento,Serializable> {
 
+	Departamento findByIddepartamento(int id);
+
 	
 	
 }

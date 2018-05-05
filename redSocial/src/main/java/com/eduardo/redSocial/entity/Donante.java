@@ -91,6 +91,14 @@ public class Donante {
 		this.grupodonante = grupodonante;
 	}
 
+	public Departamento getDepartamentodonante() {
+		return departamentodonante;
+	}
+
+	public void setDepartamentodonante(Departamento departamentodonante) {
+		this.departamentodonante = departamentodonante;
+	}
+
 	public Set<UserRole> getUserRole() {
 		return userRole;
 	}

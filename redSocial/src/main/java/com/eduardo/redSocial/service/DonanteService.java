@@ -8,7 +8,9 @@ import com.eduardo.redSocial.model.DonanteModel;
 @Service
 public interface DonanteService {
 
-	public Donante addDonante(DonanteModel donantemodel, int idGrupoSanguineo);
+	
+	public Donante addDonante(DonanteModel donantemodel);
+	public Donante addDonante(DonanteModel donantemodel, int idGrupoSanguineo,int idDepartamento);
 	
 	//public boolean loginDonante(String user,String pass);
 	

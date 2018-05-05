@@ -13,8 +13,8 @@ public class DepartamentoConverte {
 		
 		Departamento departamento = new Departamento();
 		
-		departamento.setIdDepartamento(departamentomodel.getIdDepartamento());
-		departamento.setNombreDepartamento(departamentomodel.getNombreDepartamento());
+		departamento.setIddepartamento(departamentomodel.getIddepartamento());
+		departamento.setNombredepartamento(departamentomodel.getNombredepartamento());
 		
 		return departamento;
 		
@@ -25,8 +25,8 @@ public class DepartamentoConverte {
 		
 		DepartamentoModel departamentomodel = new DepartamentoModel();
 		
-		departamentomodel.setIdDepartamento(departamento.getIdDepartamento());
-		departamentomodel.setNombreDepartamento(departamento.getNombreDepartamento());
+		departamentomodel.setIddepartamento(departamento.getIddepartamento());
+		departamentomodel.setNombredepartamento(departamento.getNombredepartamento());
 		
 		return departamentomodel;
 		

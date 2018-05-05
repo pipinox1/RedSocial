@@ -2,6 +2,7 @@ package com.eduardo.redSocial.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
@@ -9,40 +10,30 @@ import javax.persistence.Table;
 public class Departamento {
 	
 	@Column(name = "iddepartamento")
-	private String idDepartamento;
+	@Id
+	private int iddepartamento;
 	
 	@Column(name = "nombredepartamento")
-	private String nombreDepartamento;
+	private String nombredepartamento;
 	
 	public Departamento() {}
-	
-	
 
-	public Departamento(String idDepartamento, String nombreDepartamento) {
-		super();
-		this.idDepartamento = idDepartamento;
-		this.nombreDepartamento = nombreDepartamento;
+	public int getIddepartamento() {
+		return iddepartamento;
 	}
 
-
-
-	public String getIdDepartamento() {
-		return idDepartamento;
+	public void setIddepartamento(int iddepartamento) {
+		this.iddepartamento = iddepartamento;
 	}
 
-	public void setIdDepartamento(String idDepartamento) {
-		this.idDepartamento = idDepartamento;
+	public String getNombredepartamento() {
+		return nombredepartamento;
 	}
 
-	public String getNombreDepartamento() {
-		return nombreDepartamento;
+	public void setNombredepartamento(String nombredepartamento) {
+		this.nombredepartamento = nombredepartamento;
 	}
 
-	public void setNombreDepartamento(String nombreDepartamento) {
-		this.nombreDepartamento = nombreDepartamento;
-	}
-	
-	
 	
 
 	

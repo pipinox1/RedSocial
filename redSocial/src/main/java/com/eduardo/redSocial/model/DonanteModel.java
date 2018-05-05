@@ -10,17 +10,20 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
+import com.eduardo.redSocial.entity.Departamento;
 import com.eduardo.redSocial.entity.GrupoSanguineo;
 import com.eduardo.redSocial.entity.UserRole;
 
 public class DonanteModel {
 	
 	
+	
 	private String nombredonante;
 		
 	private int iddonante;	
 	
-	private GrupoSanguineo grupodonante;	
+	private GrupoSanguineoModel grupodonante;
+	private DepartamentoModel departamentodonante;
 	
 	private String userdonante;
 	
@@ -44,7 +47,7 @@ public class DonanteModel {
 	
 	
 
-	public DonanteModel(String nombredonante, int iddonante, GrupoSanguineo grupodonante, String userdonante,
+	public DonanteModel(String nombredonante, int iddonante, GrupoSanguineoModel grupodonante, String userdonante,
 			String passdonante) {
 		super();
 		this.nombredonante = nombredonante;
@@ -54,6 +57,17 @@ public class DonanteModel {
 		this.passdonante = passdonante;
 	}
 
+
+
+	public DepartamentoModel getDepartamentodonante() {
+		return departamentodonante;
+	}
+
+
+
+	public void setDepartamentodonante(DepartamentoModel departamentodonante) {
+		this.departamentodonante = departamentodonante;
+	}
 
 
 	public String getNombredonante() {
@@ -72,11 +86,11 @@ public class DonanteModel {
 		this.iddonante = iddonante;
 	}
 
-	public GrupoSanguineo getGrupodonante() {
+	public GrupoSanguineoModel getGrupodonante() {
 		return grupodonante;
 	}
 
-	public void setGrupodonante(GrupoSanguineo grupodonante) {
+	public void setGrupodonante(GrupoSanguineoModel grupodonante) {
 		this.grupodonante = grupodonante;
 	}
 

@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.eduardo.redSocial.constant.Constantes;
 import com.eduardo.redSocial.entity.Donante;
+import com.eduardo.redSocial.model.DepartamentoModel;
 import com.eduardo.redSocial.model.DonanteModel;
+import com.eduardo.redSocial.service.DepartamentoService;
 import com.eduardo.redSocial.service.DonanteService;
 import com.eduardo.redSocial.service.GrupoSanguineoService;
 
@@ -29,6 +31,10 @@ public class RegisterController {
 	@Qualifier("gruposanguineoServicesImplements")
 	private GrupoSanguineoService gruposanguineoService;
 	
+	@Autowired
+	@Qualifier("departamentoServiceImpl")
+	private DepartamentoService departamentoService;
+	
 	
 	@GetMapping("/showFormDonante")
 	
@@ -36,16 +42,16 @@ public class RegisterController {
 		
 		modelo.addAttribute("donante", new DonanteModel());				
 		modelo.addAttribute("gruposSanguineo", gruposanguineoService.getAllGrup());
-		modelo.addAttribute("listaDepartamentos",new)
+		modelo.addAttribute("listaDepartamentos",departamentoService.getAllDepartamentos());
 		return Constantes.VIEW_REGISTER;
 	}
 	
 	
 	@PostMapping("/addDonante")
-	public String addDonante(@ModelAttribute(name="donante") DonanteModel donantenuevo,@RequestParam(name="idGrupoSanguineo") int IDgruposanguineo ) {
+	public String addDonante(@ModelAttribute(name="donante") DonanteModel donantenuevo,@RequestParam(name="idDepartamento") int idDepartamento,@RequestParam(name="idGrupoSanguineo") int idGrupoSanguineo ) {
 		
-
-		donanteService.addDonante(donantenuevo,IDgruposanguineo);
+		
+		donanteService.addDonante(donantenuevo,idGrupoSanguineo,idDepartamento);
 		
 		
 		return Constantes.VIEW_OKREGISTER;

@@ -6,40 +6,29 @@ public class DepartamentoModel {
 
 
 	
-	private String idDepartamento;
+	private int iddepartamento;
 	
 	
-	private String nombreDepartamento;
+	private String nombredepartamento;
 	
 	public DepartamentoModel() {}
-	
-	
 
-	public DepartamentoModel(String idDepartamento, String nombreDepartamento) {
-		super();
-		this.idDepartamento = idDepartamento;
-		this.nombreDepartamento = nombreDepartamento;
+	public int getIddepartamento() {
+		return iddepartamento;
 	}
 
-
-
-	public String getIdDepartamento() {
-		return idDepartamento;
+	public void setIddepartamento(int iddepartamento) {
+		this.iddepartamento = iddepartamento;
 	}
 
-	public void setIdDepartamento(String idDepartamento) {
-		this.idDepartamento = idDepartamento;
+	public String getNombredepartamento() {
+		return nombredepartamento;
 	}
 
-	public String getNombreDepartamento() {
-		return nombreDepartamento;
+	public void setNombredepartamento(String nombredepartamento) {
+		this.nombredepartamento = nombredepartamento;
 	}
 
-	public void setNombreDepartamento(String nombreDepartamento) {
-		this.nombreDepartamento = nombreDepartamento;
-	}
-	
-	
 	
 
 	
