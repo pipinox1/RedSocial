@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<link href="#" th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+</head>
+<body>
+
+<div class="col-md-3">
+ </div>
+ <div class="col-md-6">
+	<form class="form-horizontal" action="#" th:action="@{/registrar/addDonante}"  method="post">
+		<div class="form-group">
+			<label for="inputEmail3" class="col-sm-2 control-label">Fecha</label>
+			<div class="col-sm-10">
+				<input type="date" class="form-control" placeholder="Nombre" th:field="*{solicitud.fechasolicitud}">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputEmail3" class="col-sm-2 control-label">Hora</label>
+			<div class="col-sm-10">
+				<input type="time" class="form-control" placeholder="Nombre" th:field="*{solicitud.horasolicitud}">
+			</div>
+		</div>	
+			
+	
+		
+		<select class="form-control" name="idGrupoSanguineo" >
+			<option value="1">A+</option>
+			<option value="2">A-</option>
+			<option value="3">B+</option>
+			<option value="4">B-</option>
+			<option value="5">O+</option>
+			<option value="6">O-</option>
+			<option value="7">AB+</option>
+			<option value="8">AB-</option>
+	
+
+		</select>
+		<select class="form-control" name="idHospital" >
+			<option th:each="hospitalModel : ${listahospital}"
+			
+			th:value="${hospitalModel.idHospital}"
+						
+			th:text="${hospitalModel.nombrehospital}"
+			/>
+		</select>
+		<div class="form-group">
+			<label for="inputEmail3" class="col-sm-2 control-label">Anexo</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" placeholder="Nombre" th:field="*{solicitud.anexos}">
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-default">Sign in</button>
+			</div>
+			
+		</div>
+
+
+	</form>
+	</div>
+
+
+	<script src="/bootstrap-3.3.7/js/bootstrap.min.js"
+		th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>

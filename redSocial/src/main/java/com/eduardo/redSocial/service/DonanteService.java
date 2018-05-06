@@ -14,5 +14,5 @@ public interface DonanteService {
 	
 	//public boolean loginDonante(String user,String pass);
 	
-	
+	public DonanteModel buscarDonanteporUser(String username);
 }

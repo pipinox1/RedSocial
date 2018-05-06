@@ -21,11 +21,7 @@ public class Donante {
 	@Column(name="nombre")
 	private String nombredonante;
 	
-	
-	//@GeneratedValue(strategy=GenerationType.AUTO)
-	//@Column(name="iddonante", unique = true, nullable = false)
-	//private int iddonante;
-	
+		
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="iddepartamento")
 	private Departamento departamentodonante;
@@ -45,6 +41,45 @@ public class Donante {
 	private Set<UserRole> userRole = new HashSet<UserRole>();
 
 	public Donante() {}
+	
+	
+
+	public Donante(String nombredonante, Departamento departamentodonante, GrupoSanguineo grupodonante,
+			String userdonante, String passdonante, Set<UserRole> userRole) {
+		super();
+		this.nombredonante = nombredonante;
+		this.departamentodonante = departamentodonante;
+		this.grupodonante = grupodonante;
+		this.userdonante = userdonante;
+		this.passdonante = passdonante;
+		this.userRole = userRole;
+	}
+
+
+
+	public String getNombredonante() {
+		return nombredonante;
+	}
+
+	public void setNombredonante(String nombredonante) {
+		this.nombredonante = nombredonante;
+	}
+
+	public Departamento getDepartamentodonante() {
+		return departamentodonante;
+	}
+
+	public void setDepartamentodonante(Departamento departamentodonante) {
+		this.departamentodonante = departamentodonante;
+	}
+
+	public GrupoSanguineo getGrupodonante() {
+		return grupodonante;
+	}
+
+	public void setGrupodonante(GrupoSanguineo grupodonante) {
+		this.grupodonante = grupodonante;
+	}
 
 	public String getUserdonante() {
 		return userdonante;
@@ -62,54 +97,13 @@ public class Donante {
 		this.passdonante = passdonante;
 	}
 
-	public Donante( String nombredonante,   GrupoSanguineo grupodonante,
-			String userdonante, String passdonante, Set<UserRole> userRole) {
-		super();
-		this.nombredonante = nombredonante;
-		
-		this.grupodonante = grupodonante;
-		this.userdonante = userdonante;
-		this.passdonante = passdonante;
-		this.userRole = userRole;
-	}
-
-	public String getNombredonante() {
-		return nombredonante;
-	}
-
-	public void setNombredonante(String nombredonante) {
-		this.nombredonante = nombredonante;
-	}
-
-	
-
-	public GrupoSanguineo getGrupodonante() {
-		return grupodonante;
-	}
-
-	public void setGrupodonante(GrupoSanguineo grupodonante) {
-		this.grupodonante = grupodonante;
-	}
-
-	public Departamento getDepartamentodonante() {
-		return departamentodonante;
-	}
-
-	public void setDepartamentodonante(Departamento departamentodonante) {
-		this.departamentodonante = departamentodonante;
-	}
-
 	public Set<UserRole> getUserRole() {
 		return userRole;
 	}
 
 	public void setUserRole(Set<UserRole> userRole) {
-		
 		this.userRole = userRole;
 	}
-	
-	
-	
 	
 	
 	

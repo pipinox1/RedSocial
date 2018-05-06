@@ -17,4 +17,6 @@ public interface DonanteRepository extends JpaRepository<Donante, Serializable> 
 	
 	public Donante findByUserdonante(String userdonante);
 	
+	
+	
 }

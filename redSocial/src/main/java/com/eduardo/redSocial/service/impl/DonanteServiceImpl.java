@@ -90,6 +90,12 @@ public class DonanteServiceImpl implements DonanteService{
 		return donanteRepository.save(donanteConverter.converteToDonante(donantemodel));		
 	}
 
+	@Override
+	public DonanteModel buscarDonanteporUser(String username) {
+		
+		return donanteConverter.convertToDonanteModel(donanteRepository.findByUserdonante(username));
+	}
+
 	//@Override
 	//public boolean loginDonante(String user, String pass) {
 		
